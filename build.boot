@@ -30,6 +30,8 @@
          '[clojure.java.io :as io]
          '[clojure.tools.namespace.repl :as tnr])
 
+(b/bootlaces! version :dont-modify-paths? true)
+
 (defn dev! []
   (alter-var-root #'*warn-on-reflection* (constantly true))
   (merge-env! :source-paths #{"test"})
