@@ -1,5 +1,5 @@
 (def project 'dm3/stopwatch)
-(def version "0.1.1-SNAPSHOT")
+(def version "0.1.1")
 
 (set-env! :resource-paths #{"src"}
           :source-paths   #{"test"}
