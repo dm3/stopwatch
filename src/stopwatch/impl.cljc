@@ -15,14 +15,16 @@
 
 (macro/usetime
 
+#? (:cljs (defn node? [] (= "nodejs" cljs.core/*target*)))
+
 #? (:cljs (defn oget [o k]
             (when o (aget o k))))
 
 ;; Browser - Performance.now
 #? (:cljs (def +?window        (when (exists? js/window) js/window)))
 #? (:cljs (def +?performance   (if (exists? js/performance)
-                                           js/performance
-                                           (oget +?window "performance"))))
+                                     js/performance
+                                     (oget +?window "performance"))))
 ;;
 #? (:cljs (def +?perf-now      (or (oget +?performance "now")
                                    (oget +?performance "mozNow")
@@ -31,7 +33,7 @@
                                    (oget +?performance "webkitNow"))))
 
 ;; Node - process.hrtime
-#? (:cljs (def +?process       (when (exists? js/process) js/process)))
+#? (:cljs (def +?process       (when (node?) js/process)))
 #? (:cljs (def +?hrtime        (oget +?process "hrtime")))
 
 #? (:cljs (def +has-performance? (boolean +?perf-now)))

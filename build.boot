@@ -5,7 +5,7 @@
           :source-paths   #{"test"}
           :exclusions     '[org.clojure/clojurescript]
           :dependencies   '[[org.clojure/clojure "1.8.0"]
-                            [org.clojure/clojurescript "1.9.562"]
+                            [org.clojure/clojurescript "1.9.908"]
                             [net.cgrand/macrovich "0.2.0"]
 
                             ;; Dev
@@ -15,20 +15,21 @@
                             [crisptrutski/boot-cljs-test "0.3.0" :scope "test"]
                             [adzerk/bootlaces "0.1.13" :scope "test"]])
 
-(task-options!
- pom {:project     project
-      :version     version
-      :description "Clojure/script stopwatch"
-      :url         "https://github.com/dm3/stopwatch"
-      :scm         {:url "https://github.com/dm3/stopwatch"}
-      :license     {"MIT License" "https://opensource.org/licenses/MIT"}})
-
 (require '[adzerk.boot-cljs :refer [cljs]]
          '[adzerk.boot-test :as t]
          '[adzerk.bootlaces :as b]
-         '[crisptrutski.boot-cljs-test :as c]
+         '[crisptrutski.boot-cljs-test :as c :refer [test-cljs]]
          '[clojure.java.io :as io]
          '[clojure.tools.namespace.repl :as tnr])
+
+(task-options!
+ pom       {:project     project
+            :version     version
+            :description "Clojure/script stopwatch"
+            :url         "https://github.com/dm3/stopwatch"
+            :scm         {:url "https://github.com/dm3/stopwatch"}
+            :license     {"MIT License" "https://opensource.org/licenses/MIT"}}
+ test-cljs {:cljs-opts  {:process-shim false}})
 
 (b/bootlaces! version :dont-modify-paths? true)
 
