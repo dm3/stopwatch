@@ -17,7 +17,7 @@ Uses the most precise mechanism depending on the Javascript runtime:
 Add the following dependency to your project.clj or build.boot:
 
 ```clojure
-[dm3/stopwatch "0.1.0"]
+[dm3/stopwatch "0.1.1"]
 ```
 
 then require the namespace:
