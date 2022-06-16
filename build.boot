@@ -5,7 +5,7 @@
           :source-paths   #{"test"}
           :exclusions     '[org.clojure/clojurescript]
           :dependencies   '[[org.clojure/clojure "1.8.0"]
-                            [org.clojure/clojurescript "1.9.908"]
+                            [org.clojure/clojurescript "1.9.908" :scope "provided"]
                             [net.cgrand/macrovich "0.2.0"]
 
                             ;; Dev
